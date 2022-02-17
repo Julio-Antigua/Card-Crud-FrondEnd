@@ -1,0 +1,7 @@
+.footer{
+    /*esto hace que este en la parte de abajo*/
+    position: fixed; 
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}

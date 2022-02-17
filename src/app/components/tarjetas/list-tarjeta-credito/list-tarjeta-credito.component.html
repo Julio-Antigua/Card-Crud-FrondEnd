@@ -1,0 +1,21 @@
+<table class="table ">
+    <thead>
+        <tr>
+            <th>Titular</th>
+            <th>Tarjeta</th>
+            <th>Fecha</th>
+            <th>Opciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let lista of tarjetaService.list">
+            <td>{{lista.titular}}</td>
+            <td>{{lista.numeroTarjeta}}</td>
+            <td>{{lista.fechaExpiracion}}</td>
+            <td>
+                <i class="far fa-edit fa-lg text-info" (click)="editar(lista)" style="cursor: pointer;"></i>
+                <i class="far fa-trash-alt fa-lg text-danger" (click)="eliminar(lista.id!)" style="cursor: pointer;"></i>
+            </td>
+        </tr>
+    </tbody>
+</table>

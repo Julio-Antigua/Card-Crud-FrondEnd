@@ -1,0 +1,49 @@
+<form action="" (submit)="guardar()" autocomplete="off" [formGroup]="formulario" >
+    <div class="form-group mb-3">
+        <div class="input-group ">
+                <div class="input-group-text bg-white">
+                    <i class="fas fa-user-circle" [class.green-icon]="iconGreen('titular')" [class.red-icon]="iconRed('titular')"></i>
+                </div>
+            <input type="text" formControlName="titular" class="form-control" placeholder="Titular">
+        </div>
+            <span class="text-danger" *ngIf="camposValidacion('titular')" >Este campo es obligatorio...</span>
+    </div>
+
+    <div class="form-group mb-3">
+        <div class="input-group">
+                <div class="input-group-text bg-white">
+                    <i class="fas fa-credit-card"  [class.green-icon]="iconGreen('numeroTarjeta')" [class.red-icon]="iconRed('numeroTarjeta')"></i>
+                </div>
+            <input type="text" formControlName="numeroTarjeta" maxlength="16" class="form-control" placeholder="Tarjeta Credito">
+        </div>
+        <span class="text-danger" *ngIf="camposValidacion('numeroTarjeta')">El numero de tarjeta debe tener 16 digitos...</span>
+    </div>
+
+    <div class="row">
+        <div class="form-group col-md-7">
+            <div class="input-group">
+                <div class="input-group-text bg-white">
+                    <i class="fas fa-calendar-alt" [class.green-icon]="iconGreen('fechaExpiracion')" [class.red-icon]="iconRed('fechaExpiracion')"></i>
+                </div>
+            <input type="text" formControlName="fechaExpiracion" maxlength="5" class="form-control" placeholder="MM/YY">
+            </div>
+            <span class="text-danger" *ngIf="camposValidacion('fechaExpiracion')">Este campo es obligatorio...</span>
+        </div>
+        <div class="form-group col-md-5">
+            <div class="input-group">
+                <div class="input-group-text bg-white">
+                    <i class="fas fa-key" [class.green-icon]="iconGreen('cvv')" [class.red-icon]="iconRed('cvv')"></i>
+                </div>
+            <input type="text" formControlName="cvv" maxlength="3" class="form-control" placeholder="CVV">
+            </div>
+            <span class="text-danger" *ngIf="camposValidacion('cvv')">Debe tener 3 digitos...</span>
+        </div>
+    </div>
+
+    <div class="form-group mt-3 col-md-12">
+        <button class="form-control btn btn-success btn-lg btn-block" [disabled]="formulario.invalid"  type="submit"><i class="fas fa-database"></i> Aceptar</button>
+    </div>
+
+    
+   
+</form>
